@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Shoot.ogg-11171d34ad7e3a1d0bc3f4d8acfd63ba.oggstr"
+
+[deps]
+
+source_file="res://Assets/Captain/Sword/Sound/Shoot.ogg"
+dest_files=[ "res://.import/Shoot.ogg-11171d34ad7e3a1d0bc3f4d8acfd63ba.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

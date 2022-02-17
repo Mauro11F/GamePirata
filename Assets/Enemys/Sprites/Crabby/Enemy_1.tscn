@@ -1,0 +1,175 @@
+[gd_scene load_steps=29 format=2]
+
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/08-Hit/Hit 02.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/08-Hit/Hit 03.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 01.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 03.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/08-Hit/Hit 04.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Enemys/Sprites/Crabby/Enemy_1.gd" type="Script" id=10]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/01-Idle/Idle 02.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 02.png" type="Texture" id=15]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/09-Dead Hit/Dead Hit 04.png" type="Texture" id=16]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/08-Hit/Hit 01.png" type="Texture" id=17]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 02.png" type="Texture" id=18]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 06.png" type="Texture" id=19]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 01.png" type="Texture" id=20]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 04.png" type="Texture" id=21]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 05.png" type="Texture" id=22]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/02-Run/Run 03.png" type="Texture" id=23]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/07-Attack/Attack 05.png" type="Texture" id=24]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/07-Attack/Attack 03.png" type="Texture" id=25]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/07-Attack/Attack 01.png" type="Texture" id=26]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/07-Attack/Attack 02.png" type="Texture" id=27]
+[ext_resource path="res://Assets/Enemys/Sprites/Fierce Tooth/07-Attack/Attack 04.png" type="Texture" id=28]
+[ext_resource path="res://Assets/Enemys/Sprites/Sound_dead/DeadHit.ogg" type="AudioStream" id=29]
+
+[sub_resource type="Animation" id=6]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ ExtResource( 12 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "attack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 25 ), ExtResource( 28 ), ExtResource( 24 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "dead"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 6 ), ExtResource( 15 ), ExtResource( 8 ), ExtResource( 16 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 17 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "run"
+length = 0.6
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 20 ), ExtResource( 18 ), ExtResource( 23 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 19 ) ]
+}
+
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 8.5
+height = 6.0
+
+[node name="Enemy_1" type="KinematicBody2D" groups=["enemy"]]
+script = ExtResource( 10 )
+health = 4
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 12 )
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/RESET = SubResource( 6 )
+anims/attack = SubResource( 11 )
+anims/dead = SubResource( 7 )
+anims/hit = SubResource( 8 )
+anims/run = SubResource( 10 )
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 1 )
+shape = SubResource( 5 )
+
+[node name="RayCast" type="Position2D" parent="."]
+
+[node name="Ground" type="RayCast2D" parent="RayCast"]
+position = Vector2( 10, 0 )
+enabled = true
+cast_to = Vector2( 0, 18 )
+
+[node name="Patrol" type="RayCast2D" parent="RayCast"]
+position = Vector2( 0, -4 )
+enabled = true
+cast_to = Vector2( 128, 0 )
+
+[node name="Attack" type="RayCast2D" parent="RayCast"]
+position = Vector2( 10, 0 )
+enabled = true
+cast_to = Vector2( 5, 0 )
+
+[node name="SoundDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 29 )
+volume_db = -20.0
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

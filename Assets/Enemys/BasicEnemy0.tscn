@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Assets/Enemys/Sprites/Sound_dead/DeadHit.ogg" type="AudioStream" id=1]
+
+[node name="BasicEnemy0" type="KinematicBody2D" groups=["enemy"]]
+
+[node name="Sprite" type="Sprite" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+
+[node name="RayCast" type="Position2D" parent="."]
+
+[node name="Ground" type="RayCast2D" parent="RayCast"]
+
+[node name="Patrol" type="RayCast2D" parent="RayCast"]
+
+[node name="Attack" type="RayCast2D" parent="RayCast"]
+
+[node name="SoundDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.0

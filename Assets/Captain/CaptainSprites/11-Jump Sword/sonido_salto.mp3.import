@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sonido_salto.mp3-d601e347599c31a55c4f52dea1585e30.mp3str"
+
+[deps]
+
+source_file="res://Assets/Captain/CaptainSprites/11-Jump Sword/sonido_salto.mp3"
+dest_files=[ "res://.import/sonido_salto.mp3-d601e347599c31a55c4f52dea1585e30.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

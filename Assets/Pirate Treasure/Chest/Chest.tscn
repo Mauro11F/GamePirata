@@ -1,0 +1,70 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Assets/Pirate Treasure/BasicCoins.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/1.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Idle/1.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/6.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/2.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/3.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/4.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/5.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/8.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Unlocked/7.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Pirate Treasure/Chest/Chest.gd" type="Script" id=11]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 14, 11 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "collected"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 2 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 4 ), ExtResource( 10 ), ExtResource( 9 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ) ]
+}
+
+[node name="Chest" instance=ExtResource( 1 )]
+script = ExtResource( 11 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( 0, 4 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/RESET = SubResource( 1 )
+anims/collected = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_Chest_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Assets/Pirate Treasure/BasicCoins.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Pirate Treasure/Red Diamond/RedDiamond.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Pirate Treasure/Diamond Effect/01.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Pirate Treasure/Red Diamond/01.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Pirate Treasure/Red Diamond/02.png" type="Texture" id=5]
+[ext_resource path="res://Assets/Pirate Treasure/Diamond Effect/04.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Pirate Treasure/Red Diamond/04.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Pirate Treasure/Diamond Effect/03.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Pirate Treasure/Red Diamond/03.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Pirate Treasure/Diamond Effect/02.png" type="Texture" id=10]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 5.375, 5.625 )
+
+[sub_resource type="Animation" id=1]
+length = 0.001
+
+[sub_resource type="Animation" id=2]
+resource_name = "collected"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 3 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 6 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "idle"
+length = 0.4
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 9 ), ExtResource( 7 ) ]
+}
+
+[node name="RedDiamond" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 4 )
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2( -0.375, -0.625 )
+shape = SubResource( 4 )
+
+[node name="AnimationPlayer" parent="." index="2"]
+anims/RESET = SubResource( 1 )
+anims/collected = SubResource( 2 )
+anims/idle = SubResource( 3 )
+
+[connection signal="body_entered" from="." to="." method="_on_RedDiamond_body_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_started" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_started"]

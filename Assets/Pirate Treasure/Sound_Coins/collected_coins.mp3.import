@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/collected_coins.mp3-6db2fa69829804aebe0cccf418293ff0.mp3str"
+
+[deps]
+
+source_file="res://Assets/Pirate Treasure/Sound_Coins/collected_coins.mp3"
+dest_files=[ "res://.import/collected_coins.mp3-6db2fa69829804aebe0cccf418293ff0.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Sword.ogg-2541c3911fdd4bf311b1d0bb4d35e8b4.oggstr"
+
+[deps]
+
+source_file="res://Assets/Captain/CaptainSprites/15-Attack 1/Sword.ogg"
+dest_files=[ "res://.import/Sword.ogg-2541c3911fdd4bf311b1d0bb4d35e8b4.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
